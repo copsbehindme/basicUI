@@ -1,0 +1,93 @@
+<!-- clock widget -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!--bootstrap and jquery-->
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script>var __adobewebfontsappname__ = "code"</script>
+	<script src="https://use.edgefonts.net/lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all.js"></script>
+
+	<title>Basic Charts Example</title>
+</head>
+<body>
+	
+	<div class="wrapper">
+        <div class="content">
+            <h1 id="date" class="date"></h1>
+            <h3 id="time" class="time"></h3>
+        </div>
+    </div>
+
+
+</body>
+
+
+<style type="text/css">
+	
+
+body {
+    background: #fff;
+    font-family: lato,sans-serif;
+    color: #bdc3c7;
+}
+
+.wrapper {
+    width: 400px;
+    margin: 10% auto;
+}
+
+.content {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 400px;
+}
+
+.date, .time {
+    color: #bdc3c7;
+    font-weight: 300;
+    font-size: 1.5em;
+    padding: 20px;
+}
+
+.date {
+    border-bottom: 2px solid #eee;
+}
+
+.time {
+    font-size: 3em;
+}
+</style>
+
+
+<script type="text/javascript">
+	var d = new Date();
+var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+
+var date = document.getElementById("date");
+var time = document.getElementById("time");
+
+function getDate() {
+    date.innerHTML = monthNames[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+}
+
+function timer() {
+    setTimeout(timer, 1000);
+    var d = new Date();
+    var hours = d.getHours();
+    var minutes = d.getMinutes();
+    var ampm = hours <= 11 ? 'am' : 'pm';
+    var strTime = [hours % 12,
+                  (minutes < 10 ? "0" + minutes : minutes)
+                  ].join(':') + ampm;
+    time.innerHTML = strTime;
+    setTimeout(timer, 1000);
+}
+
+getDate();
+timer();
+</script>
+
+</html>

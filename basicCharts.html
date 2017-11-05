@@ -1,0 +1,73 @@
+<!-- using chart.js -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!--bootstrap and jquery-->
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" integrity="sha256-c0m8xzX5oOBawsnLVpHnU2ieISOvxi584aNElFl2W6M=" crossorigin="anonymous"></script>
+	
+
+	<title>Basic Charts Example</title>
+</head>
+<body style="padding-top: 20px;">
+
+	<div class="text-center">
+		<h1>Basic Bar Chart using Chart.js</h1>
+	</div>
+	<div class="row" style="padding-top: 20px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div >
+		<canvas id="myChart"></canvas>
+	</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+
+</body>
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],  // labels on the charts
+        datasets: [{
+            label: '# of Votes',										 // label for the chart
+            data: [12, 19, 3, 5, 2, 3],									 // actual data values
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',								 // colors for bars in (red green blue) color coding
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [												 // colors for bars borders in (red green blue) color coding
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1												 // width of the border
+        }]
+    },
+    options: {															 // other options
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+	
+</script>
+</html>
